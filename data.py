@@ -4,13 +4,20 @@ from algo import *
 
 def arrayInit(fileName, arraySize):
     createdArray = fillArray(arraySize)
-    writeFile(fileName, createdArray)
+    writeArray(fileName, createdArray)
     return createdArray
 
-def writeFile(fileName, array):
+def writeArray(fileName, array):
     with open(fileName, 'w') as file:
         writer = csv.writer(file)
         writer.writerow(array)
+
+def writeAnswer(fileName, answer, array):
+    with open(fileName, 'w') as file:
+        writer = csv.writer(file)
+        writer.writerow(array)
+        writer.writerow(answer)
+
 def readFile(fileName):
     with open(fileName, mode='r', encoding='utf-8') as r_file:
         arrayLine = r_file.readline().split(',')

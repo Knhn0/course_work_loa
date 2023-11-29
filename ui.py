@@ -156,6 +156,8 @@ class Ui_MarksCounter(QWidget):
         response = sortArray(array)
         print(response)
         self.sortTimeLabel.setText("Возможная оценка: "+response)
+        writeAnswer(self.writeFile, array, response)
+
 
     def askOpenFile(self, defaultPath):
         file_filter = 'Data File (*.csv);; All files (*)'

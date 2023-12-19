@@ -3,7 +3,6 @@ import os
 from PyQt6 import QtCore, QtWidgets
 from PyQt6.QtWidgets import QFileDialog, QWidget
 
-from algo import *
 from data import *
 
 DEFAULT_READ_FILE = os.path.join(os.getcwd(), "source_file.csv")
@@ -151,12 +150,12 @@ class Ui_MarksCounter(QWidget):
         if not os.path.isfile(self.readFile):
             return
         array = readFile(self.readFile)
-        self.sortTimeLabel.setText(sortArray(array))
+        self.sortTimeLabel.setText(get_index(array))
         print(array)
-        response = sortArray(array)
+        response = get_index(array)
         print(response)
         self.sortTimeLabel.setText("Возможная оценка: "+response)
-        writeAnswer(self.writeFile, array, response)
+        writeAnswer(self.writeFile, sort_array(round_arr(array)), response)
 
 
     def askOpenFile(self, defaultPath):

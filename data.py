@@ -15,7 +15,7 @@ def writeArray(fileName, array):
 def writeAnswer(fileName, answer, array):
     with open(fileName, 'w') as file:
         writer = csv.writer(file)
-        writer.writerow(array)
+        writer.writerow(sort_array(array))
         writer.writerow(answer)
 
 def readFile(fileName):

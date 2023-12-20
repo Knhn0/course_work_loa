@@ -140,7 +140,7 @@ class Ui_MarksCounter(QWidget):
 
     def generateArray(self):
         fileName = self.askWriteFile(self.readFile)
-        arrayInit(fileName, 100)
+        array_init(fileName, 100)
         if not fileName:
             return
         self.readFile = fileName
@@ -149,13 +149,13 @@ class Ui_MarksCounter(QWidget):
     def sortArray(self):
         if not os.path.isfile(self.readFile):
             return
-        array = readFile(self.readFile)
+        array = read_file(self.readFile)
         self.sortTimeLabel.setText(get_index(array))
         print(array)
         response = get_index(array)
         print(response)
         self.sortTimeLabel.setText("Возможная оценка: "+response)
-        writeAnswer(self.writeFile, sort_array(round_arr(array)), response)
+        write_answer(self.writeFile, sort_array(round_arr(array)), response)
 
 
     def askOpenFile(self, defaultPath):

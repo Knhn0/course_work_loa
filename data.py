@@ -2,23 +2,23 @@ import csv
 
 from algo import *
 
-def arrayInit(fileName, arraySize):
+def array_init(fileName, arraySize):
     createdArray = fillArray(arraySize)
-    writeArray(fileName, createdArray)
+    write_array(fileName, createdArray)
     return createdArray
 
-def writeArray(fileName, array):
+def write_array(fileName, array):
     with open(fileName, 'w') as file:
         writer = csv.writer(file)
         writer.writerow(array)
 
-def writeAnswer(fileName, answer, array):
+def write_answer(fileName, answer, array):
     with open(fileName, 'w') as file:
         writer = csv.writer(file)
         writer.writerow(sort_array(array))
         writer.writerow(answer)
 
-def readFile(fileName):
+def read_file(fileName):
     with open(fileName, mode='r', encoding='utf-8') as r_file:
         arrayLine = r_file.readline().split(',')
         return list(map(float, arrayLine))
